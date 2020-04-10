@@ -13,4 +13,7 @@
         android:id="@+id/numbers"
         android:title="adapter numbers" />
 
+    <item
+        android:id="@+id/addData"
+        android:title="add data" />
 </menu>

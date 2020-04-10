@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.hyejeanmoon.mergeadapterdemo.databinding.ItemFirstBinding
 
-class FirstAdapter(private val data: List<String>) :
+class FirstAdapter :
     ListAdapter<String, FirstAdapter.ViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -20,11 +20,11 @@ class FirstAdapter(private val data: List<String>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.textView1.text = data[position]
+        holder.binding.textView1.text = getItem(position)
     }
 
-    override fun getItemCount(): Int {
-        return data.size
+    override fun getItemViewType(position: Int): Int {
+        return R.layout.item_first
     }
 
     class DiffCallback : DiffUtil.ItemCallback<String>() {
